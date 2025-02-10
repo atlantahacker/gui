@@ -4430,4 +4430,20 @@ do
 		--
 	end;
 end;
-return Library
+
+-- Local Variables
+local Flags = Library.Flags
+local Pointers = Library.Pointers
+local Utility = Library.Utility
+
+getfenv(0)["Library"] = Library;
+getfenv(0)["Flags"] = Flags;
+getfenv(0)["Pointers"] = Pointers;
+
+local Bodyparts = {}
+
+for i,v in next, game.Players.LocalPlayer.Character:GetChildren() do 
+	if v:IsA("BasePart") then 
+		table.insert(Bodyparts, v.Name)
+	end 
+end
